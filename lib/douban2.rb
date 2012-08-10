@@ -1,0 +1,8 @@
+require 'renren2/client'
+require 'renren2/config'
+require 'renren2/strategy/auth_code.rb'
+require 'renren2/interface/base'
+require 'renren2/interface/friends'
+require 'renren2/interface/share'
+require 'renren2/interface/status'
+require 'renren2/interface/users'
