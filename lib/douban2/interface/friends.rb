@@ -24,9 +24,8 @@ module Douban2
       # @option opts [int] :page  分页，默认为1
       # @option opts [int] :count 返回每页个数，默认为500
       #
-      # @see http://wiki.dev.renren.com/wiki/Friends.get
-      def get
-        post 'friends.get'
+      def get(uid)
+        get "people/#{uid}/friends"
       end
       
       # 获取两个用户的共同好友
