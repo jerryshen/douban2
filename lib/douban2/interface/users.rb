@@ -13,8 +13,8 @@ module Douban2
       # @option opts [String] :uids   需要查询的用户的ID，多个ID用逗号隔开。当此参数为空时，返回当前用户
       #
       # @see http://wiki.dev.renren.com/wiki/Users.getInfo
-      def get_info(opts={})
-        get "people/#{opts[:uid]}"
+      def get_info(uid)
+        get "people/#{uid}?alt=json"
       end
       
     end

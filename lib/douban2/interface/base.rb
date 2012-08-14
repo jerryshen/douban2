@@ -17,7 +17,9 @@ module Douban2
         unless @client.is_authorized?
           raise "I can't find a valid access_token. Forgot to get it or expired?"
         end
+
         begin
+          opts.merge!(:alt => :json)
           response = @client.token.request(verb, path, opts, &block)
         rescue Exception => e
           e.message
