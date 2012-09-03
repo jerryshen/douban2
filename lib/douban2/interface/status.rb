@@ -1,3 +1,4 @@
+# encoding: utf-8
 module Douban2
   module Interface
     
@@ -7,7 +8,7 @@ module Douban2
     class Status < Base
       
       def set(opts={})
-        post 'statuses', :body => { :text =>  opts[:text]}
+        post 'shuo/statuses/', :body => { :text =>  opts[:status] }
       end
       
     end

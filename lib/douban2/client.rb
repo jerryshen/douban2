@@ -47,7 +47,7 @@ module Douban2
       secret = Douban2::Config.api_secret
       @redirect_uri = Douban2::Config.redirect_uri
       
-      options = {:site          => "http://api.douban.com",
+      options = {:site          => "https://api.douban.com",
                  :authorize_url => "https://www.douban.com/service/auth2/auth",
                  :token_url     => "https://www.douban.com/service/auth2/token",
                  :raise_errors  => false,
@@ -80,10 +80,10 @@ module Douban2
     # @param [Hash] hash a Hash contains access_token and expires
     # @return [AccessToken] the initalized AccessToken
     def get_token_from_hash(hash)
-      access_token = hash.delete('access_token') || hash.delete(:access_token) || hash.delete('oauth_token') || hash.delete(:oauth_token)
+      access_token = hash.delete('access_token') || hash.delete(:access_token) || hash.delete('bearer_token') || hash.delete(:bearer_token)
       opts = {:expires_at => hash.delete("expires") || hash.delete(:expires),
-              :header_format => "OAuth2 %s",
-              :param_name => "oauth_token"}.merge(hash)
+              :header_format => "Bearer %s",
+              :param_name => "bearer_token"}.merge(hash)
       
       @token = OAuth2::AccessToken.new(self, access_token, opts)
     end
